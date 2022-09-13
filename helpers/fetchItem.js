@@ -3,7 +3,7 @@ const fetchItem = async (ItemID) => {
     const endPoint = `https://api.mercadolibre.com/items/${ItemID}`;
     const data = await fetch(endPoint);
     const result = await data.json();
-    console.log(result);
+    // console.log(result);
     return result;
   } catch (error) {
     return error;

@@ -53,7 +53,6 @@ const call = async () => {
   const items = document.querySelector('.items');
   const a = await fetchProducts('computador');
   const products = a.results;
-  console.log(products);
   products.forEach((product) => {
     items.appendChild(createProductItemElement(product));
   });

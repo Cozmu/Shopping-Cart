@@ -72,14 +72,17 @@ const call = async () => {
  * @param {string} product.price - Preço do produto.
  * @returns {Element} Elemento de um item do carrinho.
  */
+const cartItemClickListener = () => {
+const captura = document.querySelector('.cart__item');
+captura.remove();
+};
 const createCartItemElement = ({ id, title, price }) => {
   const li = document.createElement('li');
   li.className = 'cart__item';
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
-  // li.addEventListener('click', cartItemClickListener);  ------- descomentar isso depois que vai ser utilizado
+  li.addEventListener('click', cartItemClickListener); 
   return li;
 };
-
 const captureButton = async () => {
   const button = document.querySelectorAll('.item__add');
   button.forEach((element) => {
@@ -87,8 +90,8 @@ const captureButton = async () => {
       const pai = document.querySelector('.cart__items');
       const idProdutoButton = elemento.target.parentNode.firstChild.innerText;
       const product = await fetchItem(idProdutoButton);
-      console.log(product);
-      console.log(idProdutoButton);
+      // console.log(product);
+      // console.log(idProdutoButton);
       pai.appendChild(createCartItemElement(product));
     });
   });

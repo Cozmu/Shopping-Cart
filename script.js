@@ -90,8 +90,6 @@ const captureButton = async () => {
       const pai = document.querySelector('.cart__items');
       const idProdutoButton = elemento.target.parentNode.firstChild.innerText;
       const product = await fetchItem(idProdutoButton);
-      // console.log(product);
-      // console.log(idProdutoButton);
       pai.appendChild(createCartItemElement(product));
     });
   });

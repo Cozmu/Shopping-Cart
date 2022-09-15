@@ -37,7 +37,7 @@ const createCustomElement = (element, className, innerText) => {
  * @returns {Element} Elemento de produto.
  */
 
-const createProductItemElement = ({ id, title, thumbnail }) => {
+const createProductItemElement = ({ id, title, thumbnail }) => { // mostar na tela produtos
   const section = document.createElement('section');
   section.className = 'item';
 
@@ -49,13 +49,15 @@ const createProductItemElement = ({ id, title, thumbnail }) => {
   return section;
 };
 
-const call = async () => {
+const call = async () => { // mostar na tela produtos
+  const carregando = document.querySelector('.loading');
   const items = document.querySelector('.items');
   const a = await fetchProducts('computador');
   const products = a.results;
   products.forEach((product) => {
     items.appendChild(createProductItemElement(product));
   });
+  carregando.remove();
 };
 
 /**
@@ -74,7 +76,7 @@ const call = async () => {
  * @returns {Element} Elemento de um item do carrinho.
  */
 
-const getPrice = () => {
+const getPrice = () => { // soma
   const totalPrice = document.querySelector('.total-price');
   const price = document.querySelectorAll('.cart__item');
   let total = 0;
@@ -85,14 +87,14 @@ const getPrice = () => {
   totalPrice.innerHTML = total;
 };
 
-const father = document.querySelector('.cart__items');
+const father = document.querySelector('.cart__items'); // removedor
 const cartItemClickListener = (event) => {
   event.target.remove();
   saveCartItems(father.innerHTML);
   getPrice();
 };
 
-const createCartItemElement = ({ id, title, price }) => {
+const createCartItemElement = ({ id, title, price }) => { // carrinho
   const li = document.createElement('li');
   li.className = 'cart__item';
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
@@ -100,7 +102,7 @@ const createCartItemElement = ({ id, title, price }) => {
   return li;
 };
 
-const captureButton = async () => {
+const captureButton = async () => { // carrinho 
   const button = document.querySelectorAll('.item__add');
   button.forEach((element) => {
     element.addEventListener('click', async (elemento) => {

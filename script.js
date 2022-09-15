@@ -57,6 +57,7 @@ const call = async () => {
     items.appendChild(createProductItemElement(product));
   });
 };
+
 /**
  * Função que recupera o ID do produto passado como parâmetro.
  * @param {Element} product - Elemento do produto.
@@ -72,17 +73,21 @@ const call = async () => {
  * @param {string} product.price - Preço do produto.
  * @returns {Element} Elemento de um item do carrinho.
  */
-const cartItemClickListener = () => {
-const captura = document.querySelector('.cart__item');
-captura.remove();
+
+const cartItemClickListener = (event) => {
+  const father = document.querySelector('.cart__items'); 
+  event.target.remove();
+  saveCartItems(father.innerHTML);
 };
+
 const createCartItemElement = ({ id, title, price }) => {
   const li = document.createElement('li');
   li.className = 'cart__item';
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
-  li.addEventListener('click', cartItemClickListener); 
+  li.addEventListener('click', cartItemClickListener);
   return li;
 };
+
 const captureButton = async () => {
   const button = document.querySelectorAll('.item__add');
   button.forEach((element) => {
@@ -91,6 +96,7 @@ const captureButton = async () => {
       const idProdutoButton = elemento.target.parentNode.firstChild.innerText;
       const product = await fetchItem(idProdutoButton);
       pai.appendChild(createCartItemElement(product));
+      saveCartItems(pai.innerHTML);
     });
   });
 };
@@ -98,4 +104,11 @@ const captureButton = async () => {
 window.onload = async () => {
   await call();
   captureButton();
+  const olPai = document.querySelector('.cart__items');
+  const saved = getSavedCartItems();
+  olPai.innerHTML = saved;
+  const liFilhos = document.querySelectorAll('.cart__item');
+  liFilhos.forEach((element) => {
+    element.addEventListener('click', cartItemClickListener);
+  });
 };

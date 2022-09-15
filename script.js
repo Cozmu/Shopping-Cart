@@ -77,10 +77,10 @@ const call = async () => { // mostar na tela produtos
  */
 
 const getPrice = () => { // soma
+  const itens = document.querySelectorAll('.cart__item');
   const totalPrice = document.querySelector('.total-price');
-  const price = document.querySelectorAll('.cart__item');
   let total = 0;
-  price.forEach((elements) => {
+  itens.forEach((elements) => {
     const textoLI = elements.innerText.split('$');
     total += parseFloat(textoLI[1]);
   });
@@ -92,6 +92,13 @@ const cartItemClickListener = (event) => {
   event.target.remove();
   saveCartItems(father.innerHTML);
   getPrice();
+};
+const buttonDelete = () => {
+  const buttonD = document.querySelector('.empty-cart');
+  buttonD.addEventListener('click', () => {
+    father.innerHTML = '';
+    getPrice();
+  });
 };
 
 const createCartItemElement = ({ id, title, price }) => { // carrinho
@@ -121,6 +128,7 @@ window.onload = async () => {
   const saved = getSavedCartItems();
   father.innerHTML = saved;
   getPrice();
+  buttonDelete();
   const liFilhos = document.querySelectorAll('.cart__item');
   liFilhos.forEach((element) => {
     element.addEventListener('click', cartItemClickListener);

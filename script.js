@@ -74,8 +74,8 @@ const call = async () => {
  * @returns {Element} Elemento de um item do carrinho.
  */
 
+const father = document.querySelector('.cart__items'); 
 const cartItemClickListener = (event) => {
-  const father = document.querySelector('.cart__items'); 
   event.target.remove();
   saveCartItems(father.innerHTML);
 };
@@ -92,11 +92,10 @@ const captureButton = async () => {
   const button = document.querySelectorAll('.item__add');
   button.forEach((element) => {
     element.addEventListener('click', async (elemento) => {
-      const pai = document.querySelector('.cart__items');
       const idProdutoButton = elemento.target.parentNode.firstChild.innerText;
       const product = await fetchItem(idProdutoButton);
-      pai.appendChild(createCartItemElement(product));
-      saveCartItems(pai.innerHTML);
+      father.appendChild(createCartItemElement(product));
+      saveCartItems(father.innerHTML);
     });
   });
 };
@@ -104,9 +103,8 @@ const captureButton = async () => {
 window.onload = async () => {
   await call();
   captureButton();
-  const olPai = document.querySelector('.cart__items');
   const saved = getSavedCartItems();
-  olPai.innerHTML = saved;
+  father.innerHTML = saved;
   const liFilhos = document.querySelectorAll('.cart__item');
   liFilhos.forEach((element) => {
     element.addEventListener('click', cartItemClickListener);

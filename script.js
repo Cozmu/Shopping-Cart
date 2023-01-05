@@ -59,6 +59,7 @@ const call = async () => { // mostar na tela produtos
     items.appendChild(createProductItemElement(product));
   });
   carregando.remove();
+  items.style = "display: flex";
 };
 
 /**

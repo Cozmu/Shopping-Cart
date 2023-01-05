@@ -71,7 +71,7 @@
 }
 
 .items {
-  display: flex;
+  display: none;
   flex-basis: 70%;
   flex-wrap: wrap;
   justify-content: center;
@@ -186,4 +186,11 @@
   font-size: x-large;
   font-weight: 900;
   color: rgb(65, 25, 127);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
 }

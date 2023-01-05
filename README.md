@@ -14,6 +14,13 @@
   <li>Java Script</li>
 </ul>
 
+## Funcionalidades:
+
+- Possivel adicionar os produtos desejados no carrinho.
+- Possível remover qualquer produto do carrinho de compra apertando no X.
+- Possível remover todos os produtos do carrinho de uma vez apertando no botão 'Esvaziar carrinho'.
+- Possível observar o valor total dos produtos que estão no carrinho.
+
 ## Como executar:
 
 <ul>
@@ -22,14 +29,10 @@
 </ul>
 <img width=500px style="margin-left: 40px" alt="exemplo" src="https://techstacker.com/static/b67ab1adeadeacd5164ee69e6cc07048/5e6b6/vscode-live-server-extension.png">
 
-## Funcionalidades:
+## Também disponível em:
 
-- Possivel adicionar os produtos desejados no carrinho.
-- Possível remover qualquer produto do carrinho de compra apertando no X.
-- Possível remover todos os produtos do carrinho de uma vez apertando no botão 'Esvaziar carrinho'.
-- Possível observar o valor total dos produtos que estão no carrinho.
-
-
+### <a href="https://shopping-cart-cozmu.vercel.app/" ><b>Shopping Cart</b></a>
+<a href="https://shopping-cart-cozmu.vercel.app/" ></a>
 
 ## Como contribuir no projeto:
   1. Faça um **fork** do projeto;

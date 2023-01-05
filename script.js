@@ -90,24 +90,40 @@ const getPrice = () => { // soma
 };
 
 const father = document.querySelector('.cart__items'); // removedor
+
 const cartItemClickListener = (event) => {
-  event.target.remove();
+  event.target.parentNode.remove();
   saveCartItems(father.innerHTML);
   getPrice();
 };
+
 const buttonDelete = () => {
   const buttonD = document.querySelector('.empty-cart');
   buttonD.addEventListener('click', () => {
     father.innerHTML = '';
     getPrice();
+    localStorage.clear();
   });
 };
 
-const createCartItemElement = ({ id, title, price, _thumbnail }) => { // carrinho
+const createCartItemElement = ({ _id, title, price, thumbnail }) => { // carrinho
+  const butao = document.createElement('button');
+  butao.innerHTML = 'X';
   const li = document.createElement('li');
   li.className = 'cart__item';
-  li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
-  li.addEventListener('click', cartItemClickListener);
+  const imagem = document.createElement('img');
+  imagem.className = 'cartimg';
+  imagem.src = thumbnail;
+  const titulo = document.createElement('p');
+  const preco = document.createElement('p');
+  preco.className = 'cartPrice';
+  preco.innerHTML = `R$${+price}`;
+  titulo.innerHTML = title;
+  li.appendChild(imagem);
+  li.appendChild(titulo);
+  li.appendChild(preco);
+  li.appendChild(butao);
+  butao.addEventListener('click', cartItemClickListener);
   return li;
 };
 

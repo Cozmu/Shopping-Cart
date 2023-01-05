@@ -144,6 +144,10 @@
   height: 500px;
   overflow-y: scroll;
   align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  gap: 10px;
 }
 
 .empty-cart {
@@ -157,4 +161,35 @@
   margin-top: 15px;
   border: 1px solid rgb(65, 25, 127);
   background-color: rgb(65, 25, 127);
+}
+
+.cart__item {
+  list-style: none;
+  width: 90%;
+  margin: auto;
+  background-color: white;
+  border: 2px solid rgb(234, 234, 233);
+  border-radius: 5px;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  display: flex;
+}
+
+.cart__item button {
+  width: 40px;
+  font-size: x-large;
+  font-weight: 900;
+  border: none;
+  margin-left: 20px;
+  cursor: pointer;
+  background-color: white;
+  height: 50px;
+}
+
+.cartPrice {
+  text-align: center;
+  font-size: x-large;
+  font-weight: 900;
+  color: rgb(65, 25, 127);
 }

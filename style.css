@@ -23,10 +23,7 @@
 }
 
 .container-title {
-  width: 876.67px;
-  /* Tela menor */
-  /* width: 70%;  Sem expecificação */
-  /* width: 1250px;  Tela maior */
+  width: 70%;
 }
 
 .container-cartTitle {
@@ -35,12 +32,9 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(0, 213, 226);
-  width: 439.7px;
-  /* Tela menor */
+  width: 30%;
   height: 100%;
-  margin-left: 30px;
-  /* width: 35%; Sem expecificação */
-  /* width: 622.78px;  Tela maior */
+
 }
 
 .material-icons {
@@ -127,7 +121,7 @@
 
 .cart {
   display: flex;
-  flex-basis: 34%;
+  flex-basis: 30%;
   align-items: center;
   flex-flow: column wrap;
   background-color: rgb(243, 249, 251);
